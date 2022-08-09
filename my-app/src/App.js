@@ -1,5 +1,7 @@
 
 import React,{useState,useEffect} from "react";
+import Detalhe from "./componentes/detalhe";
+
 import './App.css';
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
 
   const [count, setCount]= useState(1)
 const [fundo, setFundo]= useState(false)
-
+const [modal,setModal]= useState("")
 
   const handleNext =()=>{
   
@@ -66,6 +68,10 @@ const [fundo, setFundo]= useState(false)
      setShow(true)
      setFundo(false)
 
+    
+      setModal("pointer")
+    
+
     })
    
   }
@@ -76,7 +82,7 @@ const [fundo, setFundo]= useState(false)
 const handleImage =(src)=>{
 
 setCount(count + 1)
-if(count ==3){
+if(count ===3){
   setFundo(src)
   setCount(1)
 
@@ -88,8 +94,17 @@ if(count ==3){
 
 
 
+const handlebackgroung =()=>{
+ 
+  setShow(false)
+  setModal("")
+}
+
+
+
+
   return (
-    <div className="fundo" style={{backgroundImage: "url(" + fundo + ")"}}>
+    <div className="fundo" style={{backgroundImage: "url(" + fundo + ")",cursor:`${modal}`}} onClick={handlebackgroung}>
 
     <div className="nomes">
     {
@@ -113,49 +128,11 @@ if(count ==3){
     </div>
 
 
-
+  
   
 {
       show? 
-<div className="info">
-
-      
-
-
-
-<div className="infoContent">
-<img className="image" src={img} alt={img} onClick={(e)=>handleImage(e.target.src)}/>
- <div className="infoNome">
- <div className="pekenonNome">{info.name}</div>
-<div className="btns2">
-{
-  types.map((item)=>(
-    <button className="btn">{item.type.name}</button>
-  ))
- }
-</div>
-
- </div>
-
-</div>
- <div className="progress">
- {
-    base.slice(0,3).map((item)=>(
-      <div className="barra" style={{width:"200px",height:"20px", border: "1px solid black"}}><div className="dados" style={{width: `${item.base_stat}%`,background:"blue",height:"20px"}}></div></div>
-    ))
-  }
-
-   {
-    base.slice(5).map((item)=>(
-      <div className="barra" style={{width:"200px",height:"20px", border: "1px solid black"}}><div className="dados" style={{width: `${item.base_stat}%`,background:"blue",height:"20px"}}></div></div>
-    ))
-  }
-
- </div>
-
-       
-      
-</div>
+     <Detalhe img={img} info={info} types={types} handleImage={handleImage} base={base}/>
       :
       null
      }

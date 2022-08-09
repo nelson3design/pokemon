@@ -1,7 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 *{
   padding: 0;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 
@@ -14,38 +15,50 @@ background-size: contain;
 background-position: center;
 align-items: center;
 justify-content: center;
+gap: 20px;
 }
 
 .nomes{
-  width: 20%;
- border: 1px solid black;
+  width: 30%;
+ border: 1px solid #333;
  height: 73%;
  padding: 20px 0;
+ background-color: rgba(201, 201, 201, 0.829);
+ display: flex;
+ justify-content: space-between;
+ flex-direction: column;
+ border-radius: 10px;
 }
 
 .info{
-  width: 50%;
- border: 1px solid black;
+  width: 30%;
+ border: 1px solid #333;
   padding: 20px;
   height: 73%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
 }
 
 
 .infoContent{
   height: 60%;
-  width: 50%;
+  width: 100%;
  
 }
 
 .image{
 
-  height: 250px;
+  height: 80%;
   cursor: pointer;
   transition: transform .3s;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
 }
 .image:hover{
 transform: scale(1.1);
@@ -53,19 +66,20 @@ transform: scale(1.1);
 
 
 .progress{
-  height: 40%;
-  width: 50%;
-  margin-top: 30px;
+ 
+  width: 80%;
+
+  display: flex;
+    flex-direction: column;
+  
+
 }
 
-.progress .barra{
-overflow: hidden;
- margin: 10px 0;
-}
+
 
 .nome{
   cursor: pointer;
-  margin: 5px 0;
+ 
   font-size: 17px;
   text-transform: uppercase;
   padding: 0 20px;
@@ -99,7 +113,7 @@ color: white;
 }
 
 .pekenonNome{
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 22px;
   text-transform: uppercase;
   margin-bottom: 5px;
@@ -107,6 +121,72 @@ color: white;
 }
 
 .infoNome{
-  width: 200px;
+  width: 100%;
   text-align: center;
+}
+
+progress{
+  width: 75%;
+  height: 40px;
+}
+
+.bar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.bar span{
+  font-size: 17px;
+ text-transform: uppercase;
+ width: 20%;
+}
+
+@media (max-width:1025px) {
+  
+.fundo{
+  width: 100%;
+  display: flex;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  padding: 10% 0;
+  }
+  
+  .nomes{
+    width: 80%;
+   border: 1px solid #333;
+   height: auto;
+   padding: 20px 0;
+   background-color: rgba(201, 201, 201, 0.829);
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+   border-radius: 10px;
+  }
+  
+  .info{
+    width: 80%;
+   border: 1px solid #333;
+    padding: 20px 0px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    gap: 20px;
+  }
+  .infoContent {
+    height: 60%;
+    width: 80%;
+}
+  
 }

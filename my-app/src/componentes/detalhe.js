@@ -5,7 +5,7 @@ export default function Detalhe(props){
     return(
         <div className="info">
 
-
+        <span className="close" onClick={props.handleClose}>x</span>
         <div className="infoContent">
         <img className="image" src={ props.img} alt={ props.img} onClick={(e)=> props.handleImage(e.target.src)}/>
          <div className="infoNome">

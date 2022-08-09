@@ -40,8 +40,20 @@ gap: 20px;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
+  background-color: rgba(201, 201, 201, 0.829);
+  position: relative;
 }
-
+.close{
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: 700;
+  color: red;
+  z-index: 100;
+  cursor: pointer;
+  
+}
 
 .infoContent{
   height: 60%;
@@ -161,7 +173,7 @@ progress{
   }
   
   .nomes{
-    width: 80%;
+    width: 90%;
    border: 1px solid #333;
    height: auto;
    padding: 20px 0;
@@ -170,10 +182,11 @@ progress{
    justify-content: space-between;
    flex-direction: column;
    border-radius: 10px;
+   order: 2;
   }
   
   .info{
-    width: 80%;
+    width: 90%;
    border: 1px solid #333;
     padding: 20px 0px;
     height: auto;
@@ -183,10 +196,19 @@ progress{
     align-items: center;
     border-radius: 10px;
     gap: 20px;
+    order: 1;
+    position: relative;
   }
+
+
   .infoContent {
     height: 60%;
     width: 80%;
+}
+
+progress {
+  width: 65%;
+  height: 40px;
 }
   
 }

@@ -2,7 +2,6 @@
 import React,{useState,useEffect} from "react";
 import Detalhe from "./componentes/detalhe";
 
-import './App.css';
 
 function App() {
  
@@ -22,7 +21,7 @@ function App() {
 
   const [count, setCount]= useState(1)
 const [fundo, setFundo]= useState(false)
-const [modal,setModal]= useState("")
+
 
   const handleNext =()=>{
   
@@ -69,7 +68,7 @@ const [modal,setModal]= useState("")
      setFundo(false)
 
     
-      setModal("pointer")
+     
     
 
     })
@@ -91,20 +90,18 @@ if(count ===3){
 
 }
 
-
-
-
-const handlebackgroung =()=>{
- 
+const handleClose=()=>{
   setShow(false)
-  setModal("")
+ 
 }
 
 
 
 
+
+
   return (
-    <div className="fundo" style={{backgroundImage: "url(" + fundo + ")",cursor:`${modal}`}} onClick={handlebackgroung}>
+    <div className="fundo" style={{backgroundImage: "url(" + fundo + ")"}}>
 
     <div className="nomes">
     {
@@ -132,7 +129,7 @@ const handlebackgroung =()=>{
   
 {
       show? 
-     <Detalhe img={img} info={info} types={types} handleImage={handleImage} base={base}/>
+     <Detalhe img={img} info={info} types={types} handleImage={handleImage} base={base} handleClose={handleClose}/>
       :
       null
      }

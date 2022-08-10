@@ -18,9 +18,16 @@ function App() {
   const [base, setbase]= useState([])
 
   const [show, setShow]= useState(false)
+  const [showStart, setShowStart]= useState(true)
 
   const [count, setCount]= useState(1)
 const [fundo, setFundo]= useState(false)
+const [nome, setNome]=useState("")
+
+const [colorBack, setColorback]= useState("")
+
+const [height, setheight]=useState("")
+var color;
 
 
   const handleNext =()=>{
@@ -38,7 +45,7 @@ const [fundo, setFundo]= useState(false)
     .then(response=> response.json())
     .then(response=>{
 
-     
+  
       
       setNext(response.next)
       setPrevious(response.previous)
@@ -50,31 +57,30 @@ const [fundo, setFundo]= useState(false)
 
 
 
-
+  
+  
   const handleinfo= (url)=>{
-   
    
     fetch(url)
     .then(response=> response.json())
     .then(response=>{
      
       setInfo(response)
-       setImg(response.sprites.other.dream_world.front_default)
+       setImg("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+response.id+".png")
+
+     
 
        setTypes(response.types)
 
        setbase(response.stats)
      setShow(true)
      setFundo(false)
-
-    
-     
-    
+setNome(response.types[0].type.name)
+   console.log(nome)
 
     })
    
   }
-
 
 
 
@@ -86,6 +92,9 @@ if(count ===3){
   setCount(1)
 
   setShow(false)
+  setShowStart(false)
+  setColorback(color)
+  setheight("100vh")
 }
 
 }
@@ -95,15 +104,83 @@ const handleClose=()=>{
  
 }
 
+function handlestart(){
 
+  window.location.reload(true);
+}
+
+
+
+
+  switch (nome) {
+    case "normal":
+      color = "#a8a878";
+      break;
+    case "fighting":
+      color = "#c03028";
+      break;
+    case "flying":
+      color = "#a890f0";
+      break;
+    case "poison":
+      color = "#a040a0";
+      break;
+    case "ground":
+      color = "#e0c068";
+      break;
+    case "rock":
+      color = "#b8a038";
+      break;
+    case "bug":
+      color = "#a8b820";
+      break;
+    case "ghost":
+      color = "#705898";
+      break;
+    case "steel":
+      color = "#b8b8d0";
+      break;
+    case "fire":
+      color = "#f08030";
+      break;
+    case "water":
+      color = "#6890f0";
+      break;
+    case "grass":
+      color = "#78c850";
+      break;
+    case "electric":
+      color = "#f8d030";
+      break;
+    case "psychic":
+      color = "#f85888";
+      break;
+    case "ice":
+      color = "#98d8d8";
+      break;
+    case "dragon":
+      color = "#7038f8";
+      break;
+    case "dark":
+      color = "#705848";
+      break;
+    case "fairy":
+      color = "#ee99ac";
+      break;
+    default:
+      color = "#68a090";
+  }
 
 
 
 
   return (
-    <div className="fundo" style={{backgroundImage: "url(" + fundo + ")"}}>
+    <div className="fundo" style={{backgroundImage: "url(" + fundo + ")",backgroundColor:colorBack,height: height}}>
 
-    <div className="nomes">
+   {
+    showStart?
+
+    <div className="nomes" style={{backgroundColor: color}}>
     {
         pokemos && pokemos.map((item)=>(
           <>
@@ -125,11 +202,15 @@ const handleClose=()=>{
     </div>
 
 
+    :
+    <div className="start" onClick={handlestart}>iniciar</div>
+   }
+
   
   
 {
       show? 
-     <Detalhe img={img} info={info} types={types} handleImage={handleImage} base={base} handleClose={handleClose}/>
+     <Detalhe img={img} info={info} types={types} handleImage={handleImage} base={base} handleClose={handleClose} color={color}/>
       :
       null
      }

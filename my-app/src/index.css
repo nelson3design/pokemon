@@ -16,8 +16,24 @@ background-position: center;
 align-items: center;
 justify-content: center;
 gap: 20px;
+position: relative;
+
+}
+.start{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 22px;
+  text-transform: capitalize;
+  cursor: pointer;
+  animation: anim .3s infinite;
+  color: white;
 }
 
+@keyframes anim{
+  from {transform: scale(1);}
+  to {transform: scale(1.1);}
+}
 .nomes{
   width: 30%;
  border: 1px solid #333;
@@ -37,11 +53,12 @@ gap: 20px;
   height: 73%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+ 
   align-items: center;
   border-radius: 10px;
-  background-color: rgba(201, 201, 201, 0.829);
+  /* background-color: rgba(201, 201, 201, 0.829); */
   position: relative;
+  gap: 30px;
 }
 .close{
   position: absolute;
@@ -56,20 +73,21 @@ gap: 20px;
 }
 
 .infoContent{
-  height: 60%;
+  height: 70%;
   width: 100%;
  
 }
 
 .image{
 
-  height: 80%;
+  
   cursor: pointer;
   transition: transform .3s;
   display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 300px;
+    margin: auto;
 
 }
 .image:hover{
@@ -137,24 +155,41 @@ color: white;
   text-align: center;
 }
 
-progress{
-  width: 75%;
-  height: 40px;
-}
-
-.bar{
+.barProgress{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
-.bar span{
-  font-size: 17px;
- text-transform: uppercase;
- width: 20%;
+.barraBase{
+  position: relative;
+  width: 70%;
+  height: 15px;
+  border: 1px solid rgb(255, 255, 255);
+  overflow: hidden;
+  background-color: rgb(71, 71, 71);
 }
+.barraBase .per{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+font-size: 12px;
+  z-index: 20;
+  color: white;
+}
+.barProgress span{
+  font-size: 20px;
+  text-transform: capitalize;
+  color: white;
+  width: 20%;
+}
+
+.perbase{
+  max-width: 80%;
+}
+
 
 @media (max-width:1025px) {
   
@@ -170,6 +205,7 @@ progress{
   gap: 20px;
   flex-direction: column;
   padding: 10% 0;
+  
   }
   
   .nomes{
